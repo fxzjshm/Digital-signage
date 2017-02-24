@@ -1,0 +1,9 @@
+dependencies:
+  post:
+    - bundle exec jekyll build
+
+test:
+  post:
+    - mkdir -p $CIRCLE_ARTIFACTS/site/
+    - zip site.zip _site/ -r
+    - mv site.zip $CIRCLE_ARTIFACTS/site/
