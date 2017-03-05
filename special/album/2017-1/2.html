@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="mobileoptimized" content="0"/>
+        <meta name="format-detection" content="telephone=no, email=no">
+        <meta name="screen-orientation" content="portrait">
+        <meta name="x5-orientation" content="portrait">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="browsermode" content="application">
+        <meta name="x5-page-mode" content="app">
+        <meta name="msapplication-tap-highlight" content="no">
+        <title>海中附校初三1班＠鸡年大吉，万事如意！</title>
+        <style type="text/css">
+            *,a,button {
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                outline: 0;
+                border: none
+            }
+
+            #wave,.musictrl {
+                right: 20px;
+                top: 25px;
+                position: fixed
+            }
+
+            #bottombtn,.b_btn {
+                width: 210px;
+                height: 42px
+            }
+
+            #bottombtn,#msg,#touch,#wave,.musictrl {
+                position: fixed
+            }
+
+            #stage,#wordwrap,body {
+                overflow: hidden
+            }
+
+            * {
+                padding: 0;
+                margin: 0;
+                -webkit-text-size-adjust: none;
+                -webkit-appearance: none;
+                -webkit-box-sizing: border-box
+            }
+
+            a,button {
+                background: 0 0;
+                text-decoration: none
+            }
+
+            li,ol,ul {
+                list-style: none
+            }
+
+            input,textarea {
+                -webkit-user-select: text
+            }
+
+            body {
+                background: #000;
+                font-size: 62.5%;
+                font-family: \5FAE\8F6F\96C5\9ED1,"Helvetica Neue",Helvetica,Arial,sans-serif
+            }
+
+            @-webkit-keyframes music_ctrl_rotate {
+                0% {
+                    -webkit-transform: rotate(0)
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg)
+                }
+            }
+
+            .musictrl {
+                z-index: 998
+            }
+
+            #bottombtn {
+                top: 100%;
+                left: 145px;
+                margin-top: -70px;
+                z-index: 100
+            }
+
+            .b_btn {
+                display: block;
+                line-height: 42px;
+                background-color: #ff4c61;
+                border-radius: 4px;
+                color: #fff;
+                font-size: 1.4rem;
+                font-weight: 500;
+                text-align: center
+            }
+
+            .b_btn:hover {
+                margin-top: 1px;
+                -webkit-box-shadow: 2px 3px 5px rgba(0,0,0,.3)
+            }
+
+            #loading {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                background: #000;
+                z-index: 10000
+            }
+
+            #loading-center {
+                width: 100%;
+                height: 100%;
+                position: relative
+            }
+
+            #loading-center-absolute {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                height: 150px;
+                width: 150px;
+                margin-top: -75px;
+                margin-left: -75px
+            }
+
+            #round_obj {
+                height: 12px;
+                width: 12px;
+                position: absolute;
+                background-color: #000;
+                border-radius: 40%;
+                top: 0;
+                left: 7px;
+                margin: 5px
+            }
+
+            #round_track {
+                height: 100px;
+                width: 100px;
+                border: 2px solid #fff;
+                border-radius: 50%;
+                margin: 25px;
+                animation: round_track 1.4s linear infinite;
+                -webkit-animation: round_track 1.4s linear infinite
+            }
+
+            #yanhuo1_2,#yanhuo1_8,#yanhuo2_2,#yanhuo2_6,#yanhuo2_8 {
+                -webkit-animation: yaohuo1 .3s .1s ease infinite alternate
+            }
+
+            #bianpao_s1_2,#bianpao_s2_2 {
+                -webkit-animation: xiaobianpao 1s .5s ease infinite
+            }
+
+            @keyframes round_track {
+                from {
+                    transform: rotate(0)
+                }
+
+                to {
+                    transform: rotate(360deg)
+                }
+            }
+
+            #yanhuo1_3,#yanhuo1_7,#yanhuo1_8,#yanhuo2_3,#yanhuo2_8 {
+                -webkit-transform: rotate(30deg)
+            }
+
+            @-webkit-keyframes round_track {
+                from {
+                    -webkit-transform: rotate(0)
+                }
+
+                to {
+                    -webkit-transform: rotate(360deg)
+                }
+            }
+
+            #loadingtxt {
+                color: #fff;
+                font-size: 1.2rem;
+                text-align: center;
+                margin-top: -86px
+            }
+
+            #touch {
+                right: -10px;
+                top: 30px;
+                width: 260px;
+                height: 54px;
+                z-index: 60
+            }
+
+            #bg>img,#stage {
+                height: 820px
+            }
+
+            #touch .touchinfo {
+                width: 65%
+            }
+
+            #wave {
+                -webkit-animation: wave_scaleout 1.2s infinite ease-in-out
+            }
+
+            .musictrl>img {
+                width: 44px
+            }
+
+            @-webkit-keyframes wave_scaleout {
+                0% {
+                    -webkit-transform: scale(1)
+                }
+
+                100% {
+                    -webkit-transform: scale(1.9);
+                    opacity: 0
+                }
+            }
+
+            #slidetip_txt {
+                position: absolute;
+                z-index: 9999
+            }
+
+            #slidetip_txt>img {
+                width: 150px
+            }
+
+            #slidetip_fg {
+                position: absolute;
+                z-index: 10000;
+                -webkit-animation: slidetip_fg 2.5s infinite ease-in-out
+            }
+
+            #slidetip_fg>img {
+                width: 30px
+            }
+
+            @-webkit-keyframes slidetip_fg {
+                from {
+                    -webkit-transform: translateX(80px)
+                }
+
+                to {
+                    -webkit-transform: translateX(-60px)
+                }
+            }
+
+            #singleview {
+                position: absolute;
+                z-index: 10001;
+                color: #fff;
+                font-size: 16px
+            }
+
+            #msg {
+                top: 50%;
+                margin-top: -40px;
+                text-align: center;
+                z-index: 19999;
+                width: 100%;
+                display: none
+            }
+
+            #jinjiwrap,#jinjiwrap>img,#meihua,#pagetitle,#stage,#stage>div,#stage>img,#wuding,.yanhuowrap1,.yanhuowrap1>img,.yanhuowrap2>img,.zi {
+                position: absolute
+            }
+
+            #msgcontent {
+                display: inline-block;
+                padding: 10px;
+                color: #fff;
+                background: rgba(51,51,51,.9);
+                font-size: 16pt;
+                border-radius: 5px
+            }
+
+            @-webkit-keyframes msgin {
+                0% {
+                    opacity: 0
+                }
+
+                100% {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes msgout {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes msginout {
+                0%,100% {
+                    opacity: 0
+                }
+
+                30%,70% {
+                    opacity: 1
+                }
+            }
+
+            #stage {
+                width: 500px
+            }
+
+            #kuang_l {
+                left: 0
+            }
+
+            #kuang_r {
+                right: 0
+            }
+
+            #bianpao1 {
+                left: 8px;
+                top: 0;
+                -webkit-transform-origin: 50% 0;
+                -webkit-animation: ltor 3s linear infinite alternate
+            }
+
+            #bianpao2 {
+                left: 432px;
+                top: 0;
+                -webkit-transform-origin: 50% 0;
+                -webkit-animation: ltor 3s linear infinite alternate-reverse
+            }
+
+            @-webkit-keyframes ltor {
+                from {
+                    -webkit-transform: rotate(-1deg)
+                }
+
+                to {
+                    -webkit-transform: rotate(1deg)
+                }
+            }
+
+            .yanhuowrap1 {
+                top: 184px;
+                left: -8px
+            }
+
+            #yanhuo1_1 {
+                left: 15px;
+                top: 20px;
+                width: 12px;
+                -webkit-animation: yaohuo1 .5s ease infinite alternate
+            }
+
+            #yanhuo1_2 {
+                left: 48px;
+                top: 29px;
+                width: 22px;
+                -webkit-transform: rotate(90deg)
+            }
+
+            #yanhuo1_3 {
+                left: 7px;
+                top: 35px;
+                width: 15px;
+                -webkit-animation: yaohuo1 .3s .2s ease infinite alternate
+            }
+
+            #yanhuo1_4 {
+                left: 18px;
+                top: 42px;
+                width: 31px;
+                -webkit-transform: rotate(10deg);
+                -webkit-animation: yaohuo1 .4s ease infinite alternate
+            }
+
+            #yanhuo1_5 {
+                left: 28px;
+                top: -2px;
+                width: 26px;
+                -webkit-transform: rotate(70deg);
+                -webkit-animation: yaohuo1 .5s ease infinite alternate
+            }
+
+            #yanhuo1_6 {
+                left: 44px;
+                top: 16px;
+                width: 14px;
+                -webkit-transform: rotate(90deg);
+                -webkit-animation: yaohuo1 .3s .3s ease infinite alternate
+            }
+
+            #yanhuo1_7 {
+                left: 19px;
+                top: 12px;
+                width: 39px;
+                -webkit-animation: yaohuo1 .2s .2s ease infinite alternate
+            }
+
+            #yanhuo1_8 {
+                left: 44px;
+                top: 45px;
+                width: 15px
+            }
+
+            #bianpao_s1_1 {
+                left: 27px;
+                top: 20px;
+                -webkit-animation: xiaobianpao .6s .1s ease infinite
+            }
+
+            #bianpao_s1_2 {
+                left: 34px;
+                top: 10px;
+                -webkit-transform: rotate(-45deg)
+            }
+
+            .yanhuowrap2 {
+                position: absolute;
+                top: 184px
+            }
+
+            #yanhuo2_1 {
+                left: 7px;
+                top: 20px;
+                width: 19px;
+                -webkit-animation: yaohuo1 .5s ease infinite alternate
+            }
+
+            #yanhuo2_2 {
+                left: 43px;
+                top: 45px;
+                width: 15px;
+                -webkit-transform: rotate(60deg)
+            }
+
+            #yanhuo2_3 {
+                left: -1px;
+                top: 31px;
+                width: 29px;
+                -webkit-animation: yaohuo1 .4s .1s ease infinite alternate
+            }
+
+            #yanhuo2_4 {
+                left: 19px;
+                top: 9px;
+                width: 44px;
+                -webkit-transform: rotate(34deg);
+                -webkit-animation: yaohuo1 .4s .1s ease infinite alternate
+            }
+
+            #yanhuo2_5 {
+                left: 18px;
+                top: 17px;
+                width: 16px;
+                -webkit-transform: rotate(70deg);
+                -webkit-animation: yaohuo1 .5s ease infinite alternate
+            }
+
+            #yanhuo2_6 {
+                left: 50px;
+                top: 21px;
+                width: 16px;
+                -webkit-transform: rotate(90deg)
+            }
+
+            #yanhuo2_7 {
+                left: 27px;
+                top: 46px;
+                width: 25px;
+                -webkit-transform: rotate(45deg);
+                -webkit-animation: yaohuo1 .2s .1s ease infinite alternate
+            }
+
+            #yanhuo2_8 {
+                left: 22px;
+                top: 43px;
+                width: 15px
+            }
+
+            #bianpao_s2_1 {
+                left: 32px;
+                top: 20px;
+                -webkit-transform: rotate(-70deg);
+                -webkit-animation: xiaobianpao 1s ease infinite
+            }
+
+            #bianpao_s2_2 {
+                left: 21px;
+                top: 10px
+            }
+
+            @-webkit-keyframes yaohuo1 {
+                from {
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes xiaobianpao {
+                from {
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            #pagetitle {
+                top: 220px;
+                left: 76px
+            }
+
+            #wordwrap {
+                display: table;
+                width: 350px;
+                height: 240px
+            }
+
+            #wordtitle {
+                font-size: 30px;
+                color: #fffbca;
+                vertical-align: middle;
+                word-break: break-all;
+                display: table-cell;
+                text-align: center;
+                line-height: 40px
+            }
+
+            @-webkit-keyframes titlein {
+                from {
+                    -webkit-transform: translateY(50px);
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes titleout {
+                from {
+                    opacity: 1
+                }
+
+                to {
+                    -webkit-transform: translateY(-50px);
+                    opacity: 0
+                }
+            }
+
+            #bottomwrap {
+                bottom: 0;
+                width: 100%;
+                height: 181px
+            }
+
+            #fu_s1 {
+                left: 184px;
+                bottom: 154px;
+                width: 28px;
+                -webkit-transform-origin: center;
+                -webkit-animation: fu_s1 4s 1s linear infinite
+            }
+
+            #fu_s2 {
+                left: 115px;
+                bottom: 168px;
+                width: 23px;
+                -webkit-transform-origin: center;
+                -webkit-animation: fu_s2 4s 1s linear infinite
+            }
+
+            #fu_s3 {
+                left: 154px;
+                bottom: 135px;
+                width: 20px;
+                -webkit-transform-origin: center;
+                -webkit-animation: fu_s3 4s 1s linear infinite
+            }
+
+            @-webkit-keyframes fu_s1 {
+                0% {
+                    -webkit-transform: translate(-110px,36px) scale(.2)
+                }
+
+                23% {
+                    -webkit-transform: scale(1)
+                }
+
+                100% {
+                    -webkit-transform: scale(1);
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes fu_s2 {
+                0% {
+                    -webkit-transform: translate(-45px,50px) scale(.2)
+                }
+
+                23% {
+                    -webkit-transform: scale(1) rotate(-20deg)
+                }
+
+                100% {
+                    -webkit-transform: scale(1) rotate(-20deg);
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes fu_s3 {
+                0% {
+                    -webkit-transform: translate(-80px,18px) scale(.2)
+                }
+
+                20% {
+                    -webkit-transform: scale(1) rotate(-15deg)
+                }
+
+                100% {
+                    -webkit-transform: scale(1) rotate(-15deg);
+                    opacity: 0
+                }
+            }
+
+            #jinjiwrap {
+                bottom: 110px
+            }
+
+            #jinji {
+                left: -17px;
+                bottom: 45px;
+                -webkit-transform-origin: 58.9% 96.8%;
+                -webkit-animation: jinji 2s linear infinite alternate
+            }
+
+            #jitui {
+                left: 40px;
+                bottom: 25px
+            }
+
+            @-webkit-keyframes jinji {
+                0% {
+                    -webkit-transform: rotate(-4deg)
+                }
+
+                100%,40% {
+                    -webkit-transform: rotate(0)
+                }
+            }
+
+            #meihua {
+                left: 45px;
+                bottom: 80px;
+                -webkit-transform-origin: 0 98%;
+                -webkit-animation: meihua 2.8s linear infinite alternate
+            }
+
+            @-webkit-keyframes meihua {
+                0% {
+                    -webkit-transform: rotate(-3deg)
+                }
+
+                100% {
+                    -webkit-transform: rotate(3deg)
+                }
+            }
+
+            .zi {
+                top: 11px;
+                display: none
+            }
+
+            .z1 {
+                left: 73px
+            }
+
+            .z2 {
+                left: 114px
+            }
+
+            .z3 {
+                left: 156px
+            }
+
+            .z4 {
+                left: 198px
+            }
+
+            .z5 {
+                left: 277px
+            }
+
+            .z6 {
+                left: 319px
+            }
+
+            .z7 {
+                left: 361px
+            }
+
+            .z8 {
+                left: 401px
+            }
+
+            @-webkit-keyframes fadein {
+                from {
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes fadeout {
+                from {
+                    opacity: 1
+                }
+
+                to {
+                    opacity: 0
+                }
+            }
+
+            #fu1 {
+                left: 325px;
+                top: 178px;
+                width: 90px
+            }
+
+            #fu2 {
+                left: 40px;
+                top: 326px;
+                width: 94px
+            }
+
+            #fu3 {
+                left: 373px;
+                top: 516px;
+                width: 88px
+            }
+
+            @-webkit-keyframes fu {
+                0%,100%,75% {
+                    opacity: 0
+                }
+
+                50%,65% {
+                    opacity: 1
+                }
+            }
+
+            .divh,.divv {
+                border: 15px solid transparent;
+                border-image: url(/albumtemplates/qwhy8iyl/images/transframe.png) 15 15 15 15;
+                overflow: hidden;
+                opacity: 0
+            }
+
+            .divv {
+                width: 340px;
+                height: 453px;
+                left: 80px;
+                top: 162px
+            }
+
+            .divh {
+                width: 398px;
+                height: 299px;
+                left: 51px;
+                top: 245px
+            }
+
+            @-webkit-keyframes div1_in {
+                from {
+                    -webkit-transform: scale(.1);
+                    opacity: 0
+                }
+
+                to {
+                    -webkit-transform: scale(1);
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes div1_out {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    -webkit-transform: scale(1.25);
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes div2_in {
+                from {
+                    -webkit-transform: translateX(-200px);
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes div2_out {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    -webkit-transform: translateX(200px);
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes div3_in {
+                from {
+                    -webkit-transform: translateX(200px);
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes div3_out {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    -webkit-transform: translateX(-200px);
+                    opacity: 0
+                }
+            }
+
+            @-webkit-keyframes div4_in {
+                from {
+                    -webkit-transform: scale(1.25);
+                    opacity: 0
+                }
+
+                to {
+                    opacity: 1
+                }
+            }
+
+            @-webkit-keyframes div4_out {
+                0% {
+                    opacity: 1
+                }
+
+                100% {
+                    -webkit-transform: scale(.01);
+                    opacity: 0
+                }
+            }
+        </style>
+        <script>
+            eval(function(p, a, c, k, e, d) {
+                e = function(c) {
+                    return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+                }
+                ;
+                if (!''.replace(/^/, String)) {
+                    while (c--)
+                        d[e(c)] = k[c] || e(c);
+                    k = [function(e) {
+                        return d[e]
+                    }
+                    ];
+                    e = function() {
+                        return '\\w+'
+                    }
+                    ;
+                    c = 1;
+                }
+                ;while (c--)
+                    if (k[c])
+                        p = p.replace(new RegExp('\\b' + e(c) + '\\b','g'), k[c]);
+                return p;
+            }('4 a={W:8(c){4 d=5.o(\'l\')[0];4 e=5.j(\'J\');e.D=c;e.E=\'B\';d.9(e)},C:8(c){4 d=5.o(\'l\')[0];4 e=5.j(\'F\');e.I=c;d.9(e)},6:8(c,d){4 e=5.o(\'l\')[0];4 f=5.j(\'6\');f.G=c;f.H=d;e.9(f)}};8 b(){4 c=u(z.A.7);4 d=v;4 e=w;4 f=c/d;4 g=x.t.y();k(g.S(\'T\')>-1){a.6("m","7="+d+", U="+e+",P-i="+f+",V-X=M")}n k(/N (\\d+\\.\\d+)/.K(g)){4 h=L(Q.$1);k(h>2.3){a.6("m","7="+d+",R-i="+f+",O-i="+f+",r-q=p-s")}n{a.6("m","7="+d+",r-q=p-s")}}n{}};b();', 60, 60, '||||var|document|meta|width|function|appendChild|||||||||scale|createElement|if|head|viewport|else|getElementsByTagName|device|densitydpi|target|dpi|userAgent|parseInt|500|820|navigator|toLowerCase|window|screen|stylesheet|js|href|rel|script|name|content|src|link|test|parseFloat|no|android|maximum|initial|RegExp|minimum|indexOf|iphone|height|user|css|scalable'.split('|'), 0, {}))
+        </script>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?a57231a44ade2cbac7400ac96cce073d";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }
+                ,
+                i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-77857129-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+    <body>
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div id="round_track">
+                        <div id="round_obj"></div>
+                    </div>
+                    <div id="loadingtxt" style="color:#fff;">loading</div>
+                </div>
+            </div>
+        </div>
+        <div id="stage">
+            <div id="bg">
+                <img src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bg.jpg?20170112170352'>
+            </div>
+            <img id="kuang_l" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/kuang.png?20170112170352'>
+            <img id="kuang_r" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/kuang.png?20170112170352'>
+            <img id="dingbu" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/dingbu.png?20170112170352'>
+            <img id="zi1_1" class="zi z1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xnkl/word_xin.png?20170112170352'>
+            <img id="zi1_2" class="zi z2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xnkl/word_nian.png?20170112170352'>
+            <img id="zi1_3" class="zi z3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xnkl/word_kuai.png?20170112170352'>
+            <img id="zi1_4" class="zi z4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xnkl/word_le.png?20170112170352'>
+            <img id="zi1_5" class="zi z5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jxry/word_ji.png?20170112170352'>
+            <img id="zi1_6" class="zi z6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jxry/word_xiang.png?20170112170352'>
+            <img id="zi1_7" class="zi z7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jxry/word_ru.png?20170112170352'>
+            <img id="zi1_8" class="zi z8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jxry/word_yi.png?20170112170352'>
+            <img id="zi2_1" class="zi z1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/hjxf/word_he.png?20170112170352'>
+            <img id="zi2_2" class="zi z2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/hjxf/word_jia.png?20170112170352'>
+            <img id="zi2_3" class="zi z3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/hjxf/word_xing.png?20170112170352'>
+            <img id="zi2_4" class="zi z4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/hjxf/word_fu.png?20170112170352'>
+            <img id="zi2_5" class="zi z5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/ghxc/word_gong.png?20170112170352'>
+            <img id="zi2_6" class="zi z6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/ghxc/word_he.png?20170112170352'>
+            <img id="zi2_7" class="zi z7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/ghxc/word_xin.png?20170112170352'>
+            <img id="zi2_8" class="zi z8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/ghxc/word_chun.png?20170112170352'>
+            <img id="zi3_1" class="zi z1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/cyht/word_cai.png?20170112170352'>
+            <img id="zi3_2" class="zi z2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/cyht/word_yun.png?20170112170352'>
+            <img id="zi3_3" class="zi z3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/cyht/word_heng.png?20170112170352'>
+            <img id="zi3_4" class="zi z4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/cyht/word_tong.png?20170112170352'>
+            <img id="zi3_5" class="zi z5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yffs/word_yi.png?20170112170352'>
+            <img id="zi3_6" class="zi z6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yffs/word_fang.png?20170112170352'>
+            <img id="zi3_7" class="zi z7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yffs/word_feng.png?20170112170352'>
+            <img id="zi3_8" class="zi z8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yffs/word_shun.png?20170112170352'>
+            <img id="zi4_1" class="zi z1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/wgfd/word_wu.png?20170112170352'>
+            <img id="zi4_2" class="zi z2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/wgfd/word_gu.png?20170112170352'>
+            <img id="zi4_3" class="zi z3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/wgfd/word_feng.png?20170112170352'>
+            <img id="zi4_4" class="zi z4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/wgfd/word_deng.png?20170112170352'>
+            <img id="zi4_5" class="zi z5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xxxr/word_xin.png?20170112170352'>
+            <img id="zi4_6" class="zi z6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xxxr/word_xin.png?20170112170352'>
+            <img id="zi4_7" class="zi z7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xxxr/word_xiang.png?20170112170352'>
+            <img id="zi4_8" class="zi z8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/xxxr/word_rong.png?20170112170352'>
+            <img id="fu3" style='display:none' src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu.png?20170112170352'>
+            <div id='div1h' class='divh' style='display:none'>
+                <img id='img1h' style='position:absolute'>
+            </div>
+            <div id='div1v' class='divv' style='display:none'>
+                <img id='img1v' style='position:absolute'>
+            </div>
+            <div id='div2h' class='divh' style='display:none'>
+                <img id='img2h' style='position:absolute'>
+            </div>
+            <div id='div2v' class='divv' style='display:none'>
+                <img id='img2v' style='position:absolute'>
+            </div>
+            <img id="fu1" style='display:none' src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu.png?20170112170352'>
+            <img id="fu2" style='display:none' src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu.png?20170112170352'>
+            <div id="pagetitle">
+                <div id="wordwrap">
+                    <div id="wordtitle"></div>
+                </div>
+            </div>
+            <div id="bianpao1">
+                <div class="yanhuowrap1">
+                    <img id="yanhuo1_1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo1_7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo2.png?20170112170352'>
+                    <img id="yanhuo1_8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="bianpao_s1_1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao_01.png?20170112170352'>
+                    <img id="bianpao_s1_2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao_01.png?20170112170352'>
+                </div>
+                <img style="position:absolute" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao.png?20170112170352'>
+            </div>
+            <div id="bianpao2">
+                <div class="yanhuowrap2">
+                    <img id="yanhuo2_1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_4" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo2.png?20170112170352'>
+                    <img id="yanhuo2_5" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_6" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_7" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="yanhuo2_8" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/yanhuo1.png?20170112170352'>
+                    <img id="bianpao_s2_1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao_01.png?20170112170352'>
+                    <img id="bianpao_s2_2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao_01.png?20170112170352'>
+                </div>
+                <img style="position:absolute" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/bianpao.png?20170112170352'>
+            </div>
+            <div id="bottomwrap">
+                <img id="wuding" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/wuding.png?20170112170352'>
+                <img id="meihua" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/meihua.png?20170112170352'>
+                <div id="jinjiwrap">
+                    <img id="fu_s1" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu_01.png?20170112170352'>
+                    <img id="fu_s2" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu_01.png?20170112170352'>
+                    <img id="fu_s3" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/fu_01.png?20170112170352'>
+                    <img id="jitui" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jinji_01.png?20170112170352'>
+                    <img id="jinji" src='https://ly.okmyapp.com/albumtemplates/QWHY8IyL/images/jinji_02.png?20170112170352'>
+                </div>
+            </div>
+        </div>
+        <script>
+            var albumdata = {
+                "inclient": 0,
+                "workno": "AM20170131185116223269",
+                "title": "海中附校初三1班＠鸡年大吉，万事如意！",
+                "music": "",
+                "music_title": "新年喜洋洋",
+                "sharepic": "https://ly.okmyapp.com/pic_cover/album/1164770/share_ek6v9eb4.jpg",
+                "shareurl": "https://ly.okmyapp.com/album/share/7pxmqya5xz1y",
+                "sharedesc": "分享自「留影」",
+                "sharetitle": "海中附校初三1班＠鸡年大吉，万事如意！",
+                "sharecontent": "分享自「留影」",
+                "photo_list": [{
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/jf9jbrgl_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/ypse1hie_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/2xbntk2e_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/jkdigmpl_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/s4ewcecy_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/xipdbpvi_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/m7yb8ewz_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/h69vbiv4_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/eaw2bd4f_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/taoioflu_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/2dpkff8r_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/o4piwz7e_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/6wz9dpyb_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/tjcrfop3_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/u68nqqri_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/9t3to2d8_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/9bi9rqxq_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/75cbgdtp_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/lbdqq36k_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/4paocjua_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/j4fponvs_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/ugmv1ulk_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/9x4n95xy_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/9alwif99_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/oadiuy7l_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/5fq6v4zw_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/a9rgbim6_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/tk31w546_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/iluysp1j_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/x46mw1ma_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/tr8f1sgm_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/21whrxip_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/ppzeq7kv_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/nlbnxs5h_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/nkvxk3qy_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/27fhc2w4_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/nq5uqs7x_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/motmzduo_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/ifxty8me_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/toh7px41_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/gjqh8652_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/su72te6m_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/kzfz1oe7_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/7fmojhx1_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/tnxmb1wn_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/w1fz76qa_s.jpg"
+                }, {
+                    "src": "https://ly.okmyapp.com/album_photo2/1164770/miz3kttg_s.jpg"
+                }],
+                "orig_photo_list": [],
+                "default_title": "我的音乐相册",
+                "sid": "7pxmqya5xz1y",
+                "coverpicid": 25357362,
+                "coverpic": "https://ly.okmyapp.com/pic_cover/album/1164770/cover_j6oh7l3o.jpg",
+                "tplurl": "https://ly.okmyapp.com/"
+            };
+            function getid(a) {
+                return document.getElementById(a)
+            }
+            function getclass(a) {
+                var b = document.getElementsByClassName(a);
+                return b.length > 0 ? b[0] : void 0
+            }
+            function isExitsFunction(funcName) {
+                try {
+                    if ("function" == typeof eval(funcName))
+                        return !0
+                } catch (e) {}
+                return !1
+            }
+            function isExitsVariable(a) {
+                try {
+                    return "undefined" == typeof a ? !1 : !0
+                } catch (b) {}
+                return !1
+            }
+            function is_css3_support(a) {
+                var b, c = ["webkit", "Moz", "ms", "o"], d = [], e = document.documentElement.style, f = function(a) {
+                    return a.replace(/-(\w)/g, function(a, b) {
+                        return b.toUpperCase()
+                    })
+                };
+                for (b in c)
+                    d.push(f(c[b] + "-" + a));
+                d.push(f(a));
+                for (b in d)
+                    if (d[b]in e)
+                        return !0;
+                return !1
+            }
+            function isMobile() {
+                var a = navigator.userAgent.toLowerCase();
+                return a.indexOf("mobile") >= 0 || a.indexOf("android") >= 0 || a.indexOf("iphone") >= 0 || a.indexOf("ipad") >= 0
+            }
+            function is_weixin() {
+                var a = navigator.userAgent.toLowerCase();
+                return "micromessenger" == a.match(/MicroMessenger/i) ? !0 : !1
+            }
+            function stoploading() {
+                var a = getid("loading");
+                a && a.parentNode.removeChild(a)
+            }
+            function init_music(a, b, c) {
+                musicObj = document.createElement("audio"),
+                musicObj.id = a,
+                musicObj.src = b,
+                musicObj.loop = "loop",
+                musicObj.autoplay = !1,
+                document.body.appendChild(musicObj),
+                musicCtrlName = c;
+                var d = document.createElement("div");
+                d.className = "musictrl-1",
+                d.onclick = switchsound;
+                var e = '<img id="' + musicCtrlName + '" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAYNQTFRFGxsbkpKS/Pz839/f2dnZampqkpKSrq6utbW17+/v////bGxsrq6uysrKycnJ1dXVUlJSq6urdHR0lpaWoqKiFxcXtbW1DAwMQUFBxcXFjo6OlpaWODg4o6Oj/v7++vr6xcXFp6enQEBAFBQUwsLC////WlpadnZ2wMDA////eXl52NjYoaGh2tra////tbW1t7e3tLS0SUlJJiYmnJycvb29ra2t4ODgx8fHt7e3hYWFy8vLzs7O////j4+PnZ2dNzc3mJiYurq6ubm58/PzGBgYQkJCZ2dn////5OTk////xcXFtra2jY2Nampq////////////////////3d3daWlp3Nzc////////Pj4+PDw8oaGho6OjBgYGxMTE////paWlGhoa////paWlRERE////+fn5////////OTk5o6Oj////CAgI9vb24+Pj////BAQE////EhIS/////////////////Pz8////GhoanJycsrKy////////AAAAAAAA////XUxKWQAAAIB0Uk5ThbH74t6fssDF73aQwdLR25a/o7S6hMSBkc6ws466/vrPvIiAoleZpKJYpt253mCfoMSTiLfKwOPQxazT1Wywt4a1yMewgYieOatUo6CvkDNfqJKpqo+pJyaHh5ubfqNWm4EynIiu+GuTh5yRf7CrOn53gE8lpoyyIoK2w6+zAH5KbYwNAAACQklEQVQ4y4WVZVMjQRCG99zdnRM4dxfcNXgCSSACFyHEA5tjX2Z++nV2udqRnVx/SNV0P5Wdlnnb2lesXqvMNxynMV+p1dWYJZ0imTkINpeJGOHUFjTbSgXC9o4bXcwvrSQLheTKUn7RdezYOjy2SYHtWI4Jlottk3NzTIUnyLubbjLFmuldCkzI8Cy5xjdYgG2MU2hWhNfJMfmYBVp1koLrPlyi47s4M1h8isKlf7BNua2VJeBSv3Aor1GW9gFMNStW5X87d166SZEq6MEpqoOa2+ApOUuqScqFqW9p9Z693JLOeeplC45QL7T69vCjcr2pOxGCM0BMq8AhzgckRwzIELwA5DT4+GHO96TOAwv7Vh1Y1mt7ovfYES6Wjy0DdasG5HX4ZA9jZ/lFwZMAatZp4IwO7/2hnwsPBM8MULGywKoBZvyF71kFslYDaJrgl6+F4gENywEKJvjVV99TAJy28PQvBW53jU+DyjXaJfh+WkmwAsyY4M8fldJRUxIG+OkXtSnB7b53lbEbAx/UduuDdPfO9Su3bjN2rUsbpNaIRkX24X1ONqp8KuqNaFge/u/ctcsym6ThDx88K3/uRj2W32SBz0p+sD89tkNmH9GDDelS8ON3y74pouRLQZDISNYSGccW5WvKSJffivLlCeOTqkEYn8nC6ElucSSIHaH74o0s5p2umA+r6LAr5s/VNVGiV4ChaJ+I9kWHyOmUzAsoQQsoHqcFlDAvILJQVl9t2ZBxaYa75aXZHW6zYf+zjv8C4yOIKhKW19cAAAAASUVORK5CYII=">';
+                d.innerHTML = e,
+                document.body.appendChild(d)
+            }
+            function switchsound() {
+                return is_touchplay ? void (is_touchplay = 0) : void (musicObj.paused ? play_music() : pause_music())
+            }
+            function touchplay() {
+                is_touchplay = 1,
+                play_music(),
+                document.removeEventListener("touchstart", touchplay, !1),
+                removetouch()
+            }
+            function begin_play_music() {
+                if (1 == inclient) {
+                    var a = navigator.userAgent.toLowerCase();
+                    a.indexOf("iphone") > -1 ? window.location = "kdcy-js-call://jsFun/music" : a.indexOf("android") > -1 && (isExitsFunction("window.kdcy.jsFun") ? window.kdcy.jsFun("music", "http") : play_music())
+                } else
+                    play_music(),
+                    isMobile() && musicObj.paused && (document.addEventListener("touchstart", touchplay, !1),
+                    showtouch())
+            }
+            function play_music() {
+                musicObj.play(),
+                musicObj.paused || (getid(musicCtrlName).style.webkitAnimation = "music_ctrl_rotate 3s linear infinite")
+            }
+            function pause_music() {
+                musicObj.pause(),
+                getid(musicCtrlName).style.webkitAnimation = ""
+            }
+            function showtouch() {
+                var a = document.createElement("div");
+                a.id = "touch";
+                var b = '<img class="touchinfo" src="' + albumdata.tplurl + 'albumtemplates/common/images/touch.png">';
+                a.innerHTML = b,
+                document.body.appendChild(a);
+                var c = document.createElement("div");
+                c.id = "wave",
+                b = '<img class="musicctrl_wave" src="' + albumdata.tplurl + 'albumtemplates/common/images/circle.png">',
+                c.innerHTML = b,
+                document.body.appendChild(c)
+            }
+            function removetouch() {
+                var a = getid("touch");
+                a && a.parentNode.removeChild(a);
+                var b = getid("wave");
+                b && b.parentNode.removeChild(b)
+            }
+            function showslidetip_photobook() {
+                var a = document.createElement("div");
+                a.id = "slidetip_fg",
+                c = '<img src="' + albumdata.tplurl + 'albumtemplates/common/images/slidetip_fg.png">',
+                a.innerHTML = c,
+                document.body.appendChild(a),
+                a.style.top = getid("bookwrap").offsetTop + getid("bookwrap").clientHeight - 10 + "px",
+                a.style.left = (window.innerWidth - a.clientWidth) / 2 + "px";
+                var b = document.createElement("div");
+                b.id = "slidetip_txt";
+                var c = '<img src="' + albumdata.tplurl + 'albumtemplates/common/images/slidetip_txt.png">';
+                if (b.innerHTML = c,
+                document.body.appendChild(b),
+                b.style.top = a.offsetTop + a.clientHeight + 30 + "px",
+                b.style.left = (window.innerWidth - b.clientWidth) / 2 + "px",
+                document.addEventListener("touchstart", touch_slidetip, !1),
+                1 == albumdata.show_singleviewctrl) {
+                    var d = document.createElement("div");
+                    d.id = "singleview";
+                    var c = "大图浏览 >>";
+                    d.innerHTML = c,
+                    d.onclick = singleview_photobook,
+                    document.body.appendChild(d),
+                    d.style.top = getid("bookwrap").offsetTop + getid("bookwrap").clientHeight + 30 + "px",
+                    d.style.left = (window.innerWidth - d.clientWidth) / 2 + "px",
+                    d.style.display = "none"
+                }
+            }
+            function removeslidetip_photobook() {
+                var a = getid("slidetip_fg");
+                a && a.parentNode.removeChild(a);
+                var b = getid("slidetip_txt");
+                b && b.parentNode.removeChild(b);
+                var c = getid("singleview");
+                c && (c.style.display = "block")
+            }
+            function singleview_photobook() {
+                for (var a = [], b = 0; b < albumdata.orig_photo_list.length; b++)
+                    a.push(albumdata.orig_photo_list[b].src);
+                var c = $("#book").turn("page");
+                previewImage(c - 1, a)
+            }
+            function touch_slidetip() {
+                document.removeEventListener("touchstart", touch_slidetip, !1),
+                removeslidetip_photobook()
+            }
+            function showmsg(a, b) {
+                0 != a.length && (getid("msgcontent").innerHTML = a,
+                getid("msg").style.display = "block",
+                b ? (getid("msg").style.webkitAnimation = "msginout 3s ease-in-out both",
+                getid("msg").addEventListener("webkitAnimationEnd", function() {
+                    getid("msg").style.display = "none"
+                }, !1)) : getid("msg").style.webkitAnimation = "msgin 1s ease-in-out both")
+            }
+            function hidemsg() {
+                getid("msg").style.webkitAnimation = "msgout 1s ease-in-out both",
+                getid("msg").addEventListener("webkitAnimationEnd", function() {
+                    getid("msg").style.display = "none"
+                }, !1)
+            }
+            function reset_wxshare(a, b, c, d, e) {
+                if (is_weixin())
+                    try {
+                        e && (wx.hideAllNonBaseMenuItem(),
+                        wx.showMenuItems({
+                            menuList: ["menuItem:share:appMessage", "menuItem:share:timeline", "menuItem:share:qq", "menuItem:share:QZone", "menuItem:share:weiboApp", "menuItem:favorite", "menuItem:refresh"]
+                        })),
+                        wx.onMenuShareTimeline({
+                            title: a,
+                            desc: b,
+                            link: c,
+                            imgUrl: d,
+                            success: function() {},
+                            cancel: function() {}
+                        }),
+                        wx.onMenuShareAppMessage({
+                            title: a,
+                            desc: b,
+                            link: c,
+                            imgUrl: d,
+                            type: "link",
+                            success: function() {},
+                            cancel: function() {}
+                        }),
+                        wx.onMenuShareQQ({
+                            title: a,
+                            desc: b,
+                            link: c,
+                            imgUrl: d,
+                            success: function() {},
+                            cancel: function() {}
+                        }),
+                        wx.onMenuShareWeibo({
+                            title: a,
+                            desc: b,
+                            link: c,
+                            imgUrl: d,
+                            success: function() {},
+                            cancel: function() {}
+                        }),
+                        wx.onMenuShareQZone({
+                            title: a,
+                            desc: b,
+                            link: c,
+                            imgUrl: d,
+                            success: function() {},
+                            cancel: function() {}
+                        })
+                    } catch (f) {}
+            }
+            function addcmd(a, b, c) {
+                var d = {
+                    command: a,
+                    action: b,
+                    param: c
+                };
+                cmdarray.push(d)
+            }
+            function sendcommand() {
+                var a = JSON.stringify(cmdarray);
+                cmdarray.splice(0, cmdarray.length);
+                var b = navigator.userAgent.toLowerCase();
+                b.indexOf("iphone") > -1 ? window.location = "kdcy-js-call://jsFun/s?cmd=" + a : b.indexOf("android") > -1 && isExitsFunction("window.kdcy.js2app") && window.kdcy.js2app(a)
+            }
+            function previewImage(a, b) {
+                if (0 != b.length)
+                    if (0 > a && (a = 0),
+                    a >= b.length && (a = b.length - 1),
+                    is_weixin()) {
+                        var c = {
+                            current: b[a],
+                            urls: b
+                        };
+                        wx.previewImage(c)
+                    } else if (1 == inclient) {
+                        var c = {
+                            current: b[a],
+                            urls: b,
+                            btn: [{
+                                type: "save"
+                            }, {
+                                type: "share"
+                            }]
+                        };
+                        addcmd("previewImage", "", c),
+                        sendcommand()
+                    }
+            }
+            function deal_onload() {
+                reset_wxshare(albumdata.title, albumdata.sharedesc, albumdata.shareurl, albumdata.sharepic, isedit),
+                inclient = albumdata.inclient,
+                album_title = albumdata.title,
+                init_music("music", albumdata.music, "music_ctrl_image"),
+                is_weixin() && (begin_play_music(),
+                pause_music()),
+                getid("pagetitle").style.display = "none",
+                load_photos(albumdata.photo_list, function() {
+                    loaded || (loaded = !0,
+                    stoploading(),
+                    0 != photos_count && (1 == inclient ? begin_play_music() : play_music(),
+                    showtitle()))
+                })
+            }
+            function load_photos(a, b) {
+                a.length < max_preload && (max_preload = a.length);
+                var c = 0
+                  , d = 0
+                  , e = 0;
+                for (c in a) {
+                    var f = new Image;
+                    f.onload = function(a) {
+                        var c = a.target
+                          , f = c.index;
+                        photo_url[f] = c.src,
+                        photo_width[f] = c.width,
+                        photo_height[f] = c.height,
+                        d++,
+                        e + d >= max_preload && b()
+                    }
+                    ,
+                    f.onerror = function(a) {
+                        var c = a.target
+                          , f = c.index;
+                        photo_url[f] = "error",
+                        e++,
+                        e + d >= max_preload && d > 1 && b()
+                    }
+                    ,
+                    f.index = c,
+                    f.src = a[c].src,
+                    photo_url[photos_count++] = "init"
+                }
+            }
+            function show_duilian(a, b) {
+                getid("zi" + b + "_1").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_2").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_3").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_4").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_5").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_6").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_7").style.webkitAnimation = "fadeout 0.5s linear both",
+                getid("zi" + b + "_8").style.webkitAnimation = "fadeout 0.5s linear both",
+                setTimeout(function() {
+                    getid("zi" + a + "_1").style.display = "block",
+                    getid("zi" + a + "_2").style.display = "block",
+                    getid("zi" + a + "_3").style.display = "block",
+                    getid("zi" + a + "_4").style.display = "block",
+                    getid("zi" + a + "_1").style.webkitAnimation = "fadein 0.2s linear both",
+                    getid("zi" + a + "_2").style.webkitAnimation = "fadein 0.2s 0.2s linear both",
+                    getid("zi" + a + "_3").style.webkitAnimation = "fadein 0.2s 0.4s linear both",
+                    getid("zi" + a + "_4").style.webkitAnimation = "fadein 0.2s 0.6s linear both"
+                }, 1e3),
+                setTimeout(function() {
+                    getid("zi" + a + "_5").style.display = "block",
+                    getid("zi" + a + "_6").style.display = "block",
+                    getid("zi" + a + "_7").style.display = "block",
+                    getid("zi" + a + "_8").style.display = "block",
+                    getid("zi" + a + "_5").style.webkitAnimation = "fadein 0.2s linear both",
+                    getid("zi" + a + "_6").style.webkitAnimation = "fadein 0.2s 0.2s linear both",
+                    getid("zi" + a + "_7").style.webkitAnimation = "fadein 0.2s 0.4s linear both",
+                    getid("zi" + a + "_8").style.webkitAnimation = "fadein 0.2s 0.6s linear both"
+                }, 2e3)
+            }
+            function showtitle() {
+                getid("pagetitle").style.display = "block",
+                getid("pagetitle").style.webkitAnimation = "titlein 1s linear both",
+                getid("wordtitle").innerHTML = album_title,
+                setTimeout(distitle, 3500)
+            }
+            function distitle() {
+                getid("pagetitle").style.webkitAnimation = "titleout 1s linear both",
+                setTimeout(function() {
+                    getid("fu1").style.display = "block",
+                    getid("fu1").style.webkitAnimation = "fu 10s linear infinite alternate"
+                }, 1500),
+                setTimeout(function() {
+                    getid("fu2").style.display = "block",
+                    getid("fu2").style.webkitAnimation = "fu 8s linear infinite alternate"
+                }, 2500),
+                setTimeout(function() {
+                    getid("fu3").style.display = "block",
+                    getid("fu3").style.webkitAnimation = "fu 6s linear infinite alternate"
+                }, 3e3),
+                setTimeout(scene1, 500)
+            }
+            function scene1() {
+                getid("div2v").style.webkitAnimation = "div4_out 1.2s linear both",
+                getid("div2h").style.webkitAnimation = "div4_out 1.2s linear both",
+                cutphoto("1"),
+                show_duilian(1, 4),
+                getid("div1v").style.webkitAnimation = "div1_in 1.2s 0.5s linear both",
+                getid("div1h").style.webkitAnimation = "div1_in 1.2s 0.5s linear both",
+                setTimeout(scene2, 4500)
+            }
+            function scene2() {
+                getid("div1v").style.webkitAnimation = "div1_out 1.2s linear both",
+                getid("div1h").style.webkitAnimation = "div1_out 1.2s linear both",
+                cutphoto("2"),
+                show_duilian(2, 1),
+                getid("div2v").style.webkitAnimation = "div2_in 1.2s 0.5s linear both",
+                getid("div2h").style.webkitAnimation = "div2_in 1.2s 0.5s linear both",
+                setTimeout(scene3, 4500)
+            }
+            function scene3() {
+                getid("div2v").style.webkitAnimation = "div2_out 1.2s linear both",
+                getid("div2h").style.webkitAnimation = "div2_out 1.2s linear both",
+                cutphoto("1"),
+                show_duilian(3, 2),
+                getid("div1v").style.webkitAnimation = "div3_in 1.2s 0.5s linear both",
+                getid("div1h").style.webkitAnimation = "div3_in 1.2s 0.5s linear both",
+                setTimeout(scene4, 4500)
+            }
+            function scene4() {
+                getid("div1v").style.webkitAnimation = "div3_out 1.2s linear both",
+                getid("div1h").style.webkitAnimation = "div3_out 1.2s linear both",
+                cutphoto("2"),
+                show_duilian(4, 3),
+                getid("div2v").style.webkitAnimation = "div4_in 1.2s 0.5s linear both",
+                getid("div2h").style.webkitAnimation = "div4_in 1.2s 0.5s linear both",
+                setTimeout(scene1, 4500)
+            }
+            function cutphoto(a) {
+                for (; "init" == photo_url[current_photo_index] || "error" == photo_url[current_photo_index]; )
+                    current_photo_index++,
+                    current_photo_index >= photos_count && (current_photo_index = 0);
+                var b, c, d, e = photo_width[current_photo_index], f = photo_height[current_photo_index], g = e / f, h = 0;
+                e > f ? (d = a + "h",
+                b = getid("div" + a + "h"),
+                c = getid("div" + a + "v"),
+                width = 398 - h,
+                height = 299 - h) : (d = a + "v",
+                b = getid("div" + a + "v"),
+                c = getid("div" + a + "h"),
+                width = 340 - h,
+                height = 453 - h),
+                b.style.display = "block",
+                c.style.display = "none";
+                var i = getid("img" + d);
+                i.src = photo_url[current_photo_index],
+                e > f ? (i.style.top = "0px",
+                i.style.height = height + "px",
+                i.style.width = height * g + "px",
+                i.style.left = -((height * g - width) / 2) + "px") : (i.style.left = "0px",
+                i.style.width = width + "px",
+                i.style.height = width / g + "px",
+                i.style.top = -((width / g - height) / 2) + "px"),
+                current_photo_index++,
+                current_photo_index == photos_count && (current_photo_index = 0)
+            }
+            var inclient = 1
+              , is_touchplay = 0
+              , isedit = !1
+              , preventDefaultFuc = function(a) {
+                a.preventDefault()
+            };
+            document.addEventListener("touchmove", preventDefaultFuc, !1);
+            var musicObj = null, musicCtrlName = "", cmdarray = new Array, max_preload = 5, photo_url = {}, photo_width = {}, photo_height = {}, current_photo_index = 0, photos_count = 0, album_title, loaded = !1;
+            onload = deal_onload;
+        </script>
+    </body>
+</html>
+
