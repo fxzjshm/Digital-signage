@@ -1468,8 +1468,6 @@
                   , d = 0
                   , e = 0;
                 for (c in a) {
-                    // c = a[Math.round(Math.random() * (a.length - 1))];
-                    c = Math.round(Math.random() * (a.length - 1));
                     var f = new Image;
                     f.onload = function(a) {
                         var c = a.target
@@ -1583,6 +1581,7 @@
                 setTimeout(scene1, 4500)
             }
             function cutphoto(a) {
+                current_photo_index = Math.round(Math.random() * (photos_count - 1));
                 for (; "init" == photo_url[current_photo_index] || "error" == photo_url[current_photo_index]; )
                     current_photo_index++,
                     current_photo_index >= photos_count && (current_photo_index = 0);
