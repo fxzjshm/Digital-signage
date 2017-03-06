@@ -1615,7 +1615,12 @@
               , preventDefaultFuc = function(a) {
                 a.preventDefault()
             };
-            document.addEventListener("touchmove", preventDefaultFuc, !1);
+            if (document.addEventListener) {
+              document.addEventListener("touchmove", preventDefaultFuc);
+            } else if (document.attachEvent) {
+              document.attachEvent("ontouchmove", preventDefaultFuc);
+            }
+            // document.addEventListener("touchmove", preventDefaultFuc, !1);
             var musicObj = null, musicCtrlName = "", cmdarray = new Array, max_preload = 5, photo_url = {}, photo_width = {}, photo_height = {}, current_photo_index = 0, photos_count = 0, album_title, loaded = !1;
             onload = deal_onload;
         </script>
