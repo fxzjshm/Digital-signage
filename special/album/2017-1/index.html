@@ -1314,11 +1314,7 @@
                 document.body.appendChild(b),
                 b.style.top = a.offsetTop + a.clientHeight + 30 + "px",
                 b.style.left = (window.innerWidth - b.clientWidth) / 2 + "px",
-                if (document.addEventListener) {
-                  document.addEventListener("touchstart", touch_slidetip);
-                } else if (document.attachEvent) {
-                  document.attachEvent("ontouchstart", touch_slidetip);
-                }
+                (document.addEventListener) ? document.addEventListener("touchstart", touch_slidetip):document.attachEvent("ontouchstart", touch_slidetip),
                 // document.addEventListener("touchstart", touch_slidetip, !1),
                 1 == albumdata.show_singleviewctrl) {
                     var d = document.createElement("div");
