@@ -242,6 +242,7 @@ table {
   }
 }
 p {
+  text-indent:2em;
   margin: 0 0 10px;
 }
 /*.lead {
