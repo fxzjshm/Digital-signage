@@ -1,0 +1,33 @@
+/*
+HTML files and CSS files in this folder contains code from the following pages, which is licensed under CC 4.0 BY-SA :
+https://blog.csdn.net/lfq0404/article/details/79490943
+https://blog.csdn.net/qq_41866776/article/details/96695938
+
+Many thanks to lfq0404 and qq_41866776.
+
+Some parameters has been adjusted for the aim of satisfying the need.
+*/
+
+.list1{
+    width: 960px;
+    height: 720px;
+    overflow: hidden;
+}
+.list1 img{
+    width: 960px;
+    height: 720px;
+    text-align: center;
+}
+#kuang{
+    width: 1920px;
+    height: 120px;
+    overflow:auto;
+}
+.chooser img{
+    width: 144px;
+    height: 108px;
+}
+.chooser a{
+    text-align: center;
+    padding: 5px, 15px
+}
