@@ -5,10 +5,10 @@ date:   2020-08-19
 categories: 
 tag: 
 ---
-
+<a id="jmp_a" href="{{ '/special/scrounge-food-map/svg/china.svg' | prepend: site.baseurl }}">If not redirected, click here.</a>
 <script type="text/javascript">
     function jmp(){
-        window.location='{{ /special/scrounge-food-map/svg/china.svg | prepend: site.baseurl }}'
+        window.location=document.getElementById("jmp_a").getAttribute("href")
     }
-    setTimeout("jmp()",500);
+    setTimeout("jmp()",1500);
 </script>
