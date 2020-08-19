@@ -1,0 +1,1 @@
+Mannually replace: <a xlink:href="http://shaanxi.svg/"> -> <a xlink:href="shaanxi.svg">
